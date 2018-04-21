@@ -24,7 +24,7 @@ class App extends Component {
 
   CompaniesBringer(){
     if(!this.props.companies){return null}
-    return this.props.companies.map(company => <div onClick={()=>this.choosingCompany(company)} key={company.symbol}><img onError={(e)=>{e.target.src={logo}}} src={logo}></img><p>{company.name.split(" ")[0]+" "+company.name.split(" ")[1]}</p></div>);
+    return this.props.companies.map(company => <div onClick={()=>this.choosingCompany(company)} key={company.symbol}><img onError={(e)=>{e.target.src={logo}}} alt="company logo" src={logo}></img><p>{company.name.split(" ")[0]+" "+company.name.split(" ")[1]}</p></div>);
   }
 
 
