@@ -1,0 +1,69 @@
+ .companies-data{
+  width: 100%;
+  height: 300px;
+  top:0px;
+  background:#F8F8F8;
+  left:0;
+  line-break: auto;
+  overflow-x: scroll;
+  white-space: wrap;
+  font: 0.9em 'Open Sans';
+  
+
+} 
+
+ section div {
+  margin-top: 10px;
+  padding: 15px;
+  text-align: center;
+  border: 4px solid white;
+  float: left;
+  background: rgba(100, 99, 99, 0.5);
+  margin-right: 5px;
+  margin-left: 20px;
+  height:120px;
+  width:200px;
+  border-radius: 4px;
+}
+
+
+section div:hover{
+  background: goldenrod;
+  cursor: pointer;
+}
+p{
+  font-family: 'Open Sans';
+  color: white;
+  font-weight: bold;
+}
+
+h1{
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  color: white;
+  background: silver;
+  padding: 4px;
+  margin-top: 0;
+}
+
+section::-webkit-scrollbar {
+  width: 1em;
+}
+
+section::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+}
+
+section::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
+
+img{
+  width: 60px;
+  height: 60px;
+  margin-right: auto;
+  margin-left:auto;
+  margin-top: 10px;
+}
