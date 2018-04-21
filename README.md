@@ -1,2 +1,2 @@
 # fynn-c
-Data processing app for comparing companies stokes 
+Data processing app for comparing companies stocks
