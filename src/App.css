@@ -132,3 +132,16 @@ button{
 .li-active{
   background: #f04242;
 }
+
+
+.presentation{
+  padding-bottom: 50px;
+  top:0px;
+  background: #efefef;;
+  left:0;
+  line-break: auto;
+  width:calc(100% - 180px);
+  font: 0.9em 'Open Sans';
+  margin-left: 180px;
+  text-align: center;
+}

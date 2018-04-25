@@ -15,11 +15,12 @@ class App extends Component {
     this.choosingCompany= this.choosingCompany.bind(this);
     this.state= {
       companiesSelection:true,
+      home:true,
     }
 
   }
   async componentWillMount(){
-    // let CompaniesRedunduntArray = [];
+    let CompaniesRedunduntArray = [];
 
     const companies = await Axios.get('https://api.iextrading.com/1.0/ref-data/symbols');
     const CompaniesNameFiltered = await companies.data.filter(
@@ -27,21 +28,20 @@ class App extends Component {
       //eleminate companies with no names
     )
     
-  //   let prev ='';
-  //   for ( let [index, company] of CompaniesNameFiltered.entries()){
-  //     //collecting redundunt companies
-  //     if(prev.split(' ')[0] === company.name.split(' ')[0]){
-  //       CompaniesRedunduntArray.push(index);
-  //     }
-  //    prev = company.name;
-  // }
+    let prev ='';
+    for ( let [index, company] of CompaniesNameFiltered.entries()){
+      //collecting redundunt companies
+      if(prev.split(' ')[0] === company.name.split(' ')[0]){
+        CompaniesRedunduntArray.push(index);
+      }
+     prev = company.name;
+  }
 
-  // for(let index of CompaniesRedunduntArray){
-  //   CompaniesNameFiltered.splice(CompaniesRedunduntArray[index]-index,1);
-  // }
+  for(let index of CompaniesRedunduntArray){
+    CompaniesNameFiltered.splice(CompaniesRedunduntArray[index]-index,1);
+  }
 
 
-      console.log(CompaniesNameFiltered);
     const CompaniesData = CompaniesNameFiltered.map(
       company => Object.assign({}, {name:company.name, symbol:company.symbol,
          logo:`https://storage.googleapis.com/iex/api/logos/${company.symbol}.png`})
@@ -116,11 +116,14 @@ work(){
             <nav>
               <ul>
                 <li onClick={()=>this.setState({companiesSelection:true})}>Choose a company to view stocks</li>
-                {this.state.company && <li onClick={()=>this.work()}>reset</li> }
-                {this.state.company && <li onClick={()=>this.setState({companiesSelection:true})} >{`compare with  >`}</li>}
+                {this.state.company  && <li onClick={()=>this.work()}>reset</li> }
+                {this.state.company && this.state.FrameDataStockes && <li onClick={()=>this.setState({companiesSelection:true})} >{`compare with  >`}</li>}
               </ul>
               </nav>
           </header>
+
+
+
          { this.state.companiesSelection && <Companies
           companies={this.state.companies}
           companyChooser={this.choosingCompany}
